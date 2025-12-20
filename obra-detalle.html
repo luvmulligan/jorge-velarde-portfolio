@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Obra - Jorge Velarde Ferrari</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .obra-detalle-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .obra-detalle-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .obra-detalle-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .obra-detalle-image {
+            width: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            min-height: 600px;
+        }
+
+        .obra-detalle-image img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .obra-detalle-info {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .obra-detalle-info h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .obra-info-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .obra-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .obra-info-label {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .obra-info-value {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: opacity 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .obra-detalle-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .obra-detalle-image {
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">JORGE VELARDE FERRARI</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html#biografia">Biografía</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Obras ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#obra1">Dibujos en el Río</a></li>
+                        <li><a href="index.html#obra2">Los obreros navales</a></li>
+                        <li><a href="index.html#obra3">Cuchillos hieren ladrillos</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#galeria">Galería</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="obra-detalle-container">
+        <a href="index.html#galeria" class="back-button">← Volver a la Galería</a>
+
+        <div class="obra-detalle-header">
+            <h1 class="section-title" id="obra-titulo">Cargando...</h1>
+        </div>
+
+        <div class="obra-detalle-content">
+            <div class="obra-detalle-image">
+                <img id="obra-imagen" src="" alt="">
+            </div>
+
+            <div class="obra-detalle-info">
+                <div class="obra-info-item">
+                    <div class="obra-info-label">Técnica</div>
+                    <div class="obra-info-value" id="obra-tecnica"></div>
+                </div>
+                <div class="obra-info-item">
+                    <div class="obra-info-label">Año</div>
+                    <div class="obra-info-value" id="obra-año"></div>
+                </div>
+                <div class="obra-info-item">
+                    <div class="obra-info-label">Dimensiones</div>
+                    <div class="obra-info-value" id="obra-dimensiones"></div>
+                </div>
+                <div class="obra-info-item">
+                    <div class="obra-info-label">Descripción</div>
+                    <div class="obra-info-value" id="obra-descripcion"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Jorge Velarde Ferrari. Todos los derechos reservados.</p>
+            <p>Contacto: luciavelardemulligan@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de las obras
+        const obrasData = {
+            'escenas-1': {
+                titulo: 'Escena Urbana I',
+                imagen: 'img/galeria/escenas-1.jpg',
+                tecnica: 'Acrílico sobre tela',
+                año: '1985',
+                dimensiones: '80 x 100 cm',
+                descripcion: 'Parte de una serie de pinturas urbanas realizadas en Buenos Aires a mediados de los años 80. Esta obra captura la vida cotidiana de la ciudad con una paleta vibrante y expresiva.'
+            },
+            'escenas-2': {
+                titulo: 'Escena Urbana II',
+                imagen: 'img/galeria/escenas-2.jpg',
+                tecnica: 'Acrílico sobre tela',
+                año: '1985',
+                dimensiones: '80 x 100 cm',
+                descripcion: 'Segunda obra de la serie de escenas urbanas, explorando los espacios públicos y la arquitectura de Buenos Aires.'
+            },
+            'escenas-3': {
+                titulo: 'Escena Urbana III',
+                imagen: 'img/galeria/escenas-3.jpg',
+                tecnica: 'Acrílico sobre tela',
+                año: '1986',
+                dimensiones: '80 x 100 cm',
+                descripcion: 'Continuación de la exploración de paisajes urbanos argentinos, con énfasis en la luz y el movimiento.'
+            },
+            'abs-1': {
+                titulo: 'Composición Abstracta I',
+                imagen: 'img/galeria/abs-1.jpg',
+                tecnica: 'Óleo sobre tela',
+                año: '1992',
+                dimensiones: '100 x 100 cm',
+                descripcion: 'Trabajo abstracto que explora formas geométricas y la relación entre color y espacio.'
+            },
+            'abs-2': {
+                titulo: 'Composición Abstracta II',
+                imagen: 'img/galeria/abs-2.jpg',
+                tecnica: 'Óleo sobre tela',
+                año: '1993',
+                dimensiones: '100 x 100 cm',
+                descripcion: 'Continuación de la serie abstracta, con énfasis en la textura y la superposición de capas.'
+            },
+            'madres-1': {
+                titulo: 'Madres I',
+                imagen: 'img/galeria/madres-1.jpg',
+                tecnica: 'Acrílico sobre tela',
+                año: '2000',
+                dimensiones: '120 x 90 cm',
+                descripcion: 'Primera obra de la serie dedicada a las Madres de Plaza de Mayo, representando la memoria y la resistencia.'
+            },
+            'madres-2': {
+                titulo: 'Madres II',
+                imagen: 'img/galeria/madres-2.jpg',
+                tecnica: 'Acrílico sobre tela',
+                año: '2001',
+                dimensiones: '120 x 90 cm',
+                descripcion: 'Homenaje a las madres que luchan por la memoria, verdad y justicia.'
+            },
+            'madres-3': {
+                titulo: 'Madres III',
+                imagen: 'img/galeria/madres-3.jpg',
+                tecnica: 'Acrílico sobre tela',
+                año: '2002',
+                dimensiones: '120 x 90 cm',
+                descripcion: 'Última obra de la trilogía dedicada a las Madres, simbolizando la perseverancia y la esperanza.'
+            },
+            'rostros-1': {
+                titulo: 'Retrato I',
+                imagen: 'img/galeria/rostros-1.jpg',
+                tecnica: 'Óleo sobre tela',
+                año: '1978',
+                dimensiones: '60 x 80 cm',
+                descripcion: 'Retrato realizado durante su período en Madrid, parte de su trabajo como retratista.'
+            },
+            'gato': {
+                titulo: 'Gato',
+                imagen: 'img/galeria/gato.jpg',
+                tecnica: 'Acuarela',
+                año: '1990',
+                dimensiones: '30 x 40 cm',
+                descripcion: 'Estudio en acuarela mostrando la maestría del artista en técnicas húmedas.'
+            },
+            'mujer-acuarela-1': {
+                titulo: 'Figura Femenina',
+                imagen: 'img/galeria/mujer-acuarela-1.jpg',
+                tecnica: 'Acuarela',
+                año: '1988',
+                dimensiones: '40 x 50 cm',
+                descripcion: 'Trabajo en acuarela explorando la figura humana con delicadeza y sutileza.'
+            },
+            'rostros-2': {
+                titulo: 'Retrato II',
+                imagen: 'img/galeria/rostros-2.jpg',
+                tecnica: 'Óleo sobre tela',
+                año: '1979',
+                dimensiones: '60 x 80 cm',
+                descripcion: 'Segundo retrato de la serie madrileña, demostrando su habilidad en la representación del rostro humano.'
+            },
+            'figuras-en-el-rio-1': {
+                titulo: 'Figuras en el Río I',
+                imagen: 'img/galeria/figuras-en-el-rio-1.jpg',
+                tecnica: 'Óleo sobre madera',
+                año: '1996',
+                dimensiones: '90 x 70 cm',
+                descripcion: 'Primera obra de la serie "Figuras en el Río", explorando la relación entre el cuerpo humano y el agua como espacio de memoria.'
+            },
+            'escenas-4': {
+                titulo: 'Escena Urbana IV',
+                imagen: 'img/galeria/escenas-4.jpg',
+                tecnica: 'Óleo sobre tela',
+                año: '1996',
+                dimensiones: '80 x 100 cm',
+                descripcion: 'Continuación de la serie de escenas urbanas, capturando la vida cotidiana en Buenos Aires durante los años 90.'
+            }
+        };
+
+        // Obtener ID de la obra desde la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const obraId = urlParams.get('id');
+
+        // Cargar datos de la obra
+        if (obraId && obrasData[obraId]) {
+            const obra = obrasData[obraId];
+            document.getElementById('obra-titulo').textContent = obra.titulo;
+            document.getElementById('obra-imagen').src = obra.imagen;
+            document.getElementById('obra-imagen').alt = obra.titulo;
+            document.getElementById('obra-tecnica').textContent = obra.tecnica;
+            document.getElementById('obra-año').textContent = obra.año;
+            document.getElementById('obra-dimensiones').textContent = obra.dimensiones;
+            document.getElementById('obra-descripcion').textContent = obra.descripcion;
+            document.title = `${obra.titulo} - Jorge Velarde Ferrari`;
+        } else {
+            document.getElementById('obra-titulo').textContent = 'Obra no encontrada';
+            document.getElementById('obra-tecnica').textContent = 'N/A';
+            document.getElementById('obra-año').textContent = 'N/A';
+            document.getElementById('obra-dimensiones').textContent = 'N/A';
+            document.getElementById('obra-descripcion').textContent = 'La obra solicitada no existe.';
+        }
+
+        // Smooth scroll handler for links with hash
+        document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.includes('index.html#')) {
+                    // Let the browser handle navigation to index.html with hash
+                    // The script.js on index.html will handle the scroll
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
